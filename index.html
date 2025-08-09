@@ -3,995 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kitchen Equip Co. - Professional Commercial Kitchen Solutions</title>
+  <title>KitchenEquipCo - Home</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2d3748;
-      --primary-dark: #222e3a;
-      --accent: #4fd1c5;
-      --accent-dark: #319795;
-      --light-bg: #f8fafc;
-      --card-bg: #fff;
-      --border-color: #e2e8f0;
-      --text: #23272f;
-      --muted: #64748b;
-      --shadow: 0 2px 16px #2d37480f;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: var(--light-bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-    header {
-      background: var(--primary);
-      color: #fff;
-      padding: 1.2rem 0;
-      box-shadow: 0 2px 12px #2d37482c;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .container {
-      width: 93vw; max-width: 1200px;
-      margin: auto;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-    nav .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      font-family: 'Roboto', Arial, sans-serif;
-      flex-shrink: 0;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none; /* Firefox */
-    }
-    nav ul::-webkit-scrollbar {
-      display: none;
-    }
-    nav ul li {
-      flex-shrink: 0;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: color 0.2s, border-bottom 0.2s;
-      padding-bottom: 0.2rem;
-      border-bottom: 2px solid transparent;
-      padding-left: 0.3rem;
-      padding-right: 0.3rem;
-      display: inline-block;
-    }
-    nav ul li a.active, nav ul li a:hover {
-      color: var(--accent);
-      border-bottom: 2px solid var(--accent);
-    }
-    section {
-      display: none;
-      padding: 3.2rem 0 2.2rem;
-      animation: fadeInUp 0.7s;
-    }
-    section.active {
-      display: block;
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2.2rem;
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2.2rem 2rem 2rem 2.2rem;
-      margin-bottom: 2rem;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-      border: 1px solid var(--border-color);
-    }
-    .hero img {
-      max-width: 370px;
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 2px 18px #2d374820;
-      transition: transform 0.3s cubic-bezier(.77,0,.175,1);
-    }
-    .hero img:hover {
-      transform: scale(1.03) rotate(-1deg);
-    }
-    .hero-text {
-      flex: 1;
-      min-width: 250px;
-      z-index: 2;
-    }
-    .hero-text h1 {
-      margin-top: 0;
-      font-size: 2.35rem;
-      color: var(--primary-dark);
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-    .premium-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary-dark);
-      font-weight: bold;
-      border-radius: 20px;
-      padding: 0.2em 1em;
-      margin-bottom: 1em;
-      font-size: 1rem;
-      letter-spacing: 1.5px;
-      box-shadow: 0 1px 8px #4fd1c555;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary-dark);
-      padding: 0.7rem 1.6rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-      font-size: 1.08rem;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 2px 10px #4fd1c522;
-      transition: background 0.2s, color 0.2s;
-    }
-    .btn:hover {
-      background: var(--primary-dark);
-      color: var(--accent);
-    }
-    .section-title {
-      font-size: 2rem;
-      color: var(--primary-dark);
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-    .about-content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-    .about-img {
-      flex: 1;
-      min-width: 260px;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 2px 14px #222e3a11;
-      object-fit: cover;
-      height: 260px;
-    }
-    .about-text {
-      flex: 2;
-      min-width: 220px;
-      font-size: 1.04rem;
-      color: var(--muted);
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 2rem;
-      margin-bottom: 1rem;
-    }
-    .product-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      padding: 1.2rem 1.1rem 1.6rem 1.1rem;
-      text-align: center;
-      border: 1px solid var(--border-color);
-      position: relative;
-    }
-    .product-card:hover {
-      transform: translateY(-5px) scale(1.03) rotate(-0.6deg);
-      box-shadow: 0 4px 20px #2d374820;
-      border: 1px solid var(--accent);
-    }
-    .product-card img {
-      max-width: 120px;
-      margin-bottom: 1rem;
-      border-radius: 7px;
-      border: 2px solid var(--border-color);
-      background: #fff;
-      transition: transform 0.18s;
-    }
-    .product-card:hover img {
-      transform: scale(1.07) rotate(1.5deg);
-    }
-    .product-card h3 {
-      margin: 0.5rem 0 0.3rem 0;
-      color: var(--primary-dark);
-      font-weight: 700;
-    }
-    .product-card p {
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
-
-    /* Responsive changes for mobile screens */
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; }
-      .hero img { margin-bottom: 1.4rem; }
-      .about-content { flex-direction: column; }
-      .about-img { margin-bottom: 1.3rem;}
-    }
-    @media (max-width: 700px) {
-      nav ul { gap: 0.4rem; font-size: 0.98rem;}
-      .clients-list { gap: 1rem; }
-      .products-grid { gap: 1rem;}
-      .container { width: 98vw;}
-      .section-title { font-size: 1.45rem;}
-      .hero-text h1 { font-size: 1.3rem; }
-      .premium-badge { font-size: 0.95rem;}
-    }
-    @media (max-width: 500px) {
-      .modal-content { padding: 1rem 0.5rem 1.1rem 0.5rem; width: 96vw;}
-      .gallery-slide, .gallery-slide img { height: 170px; }
-      .gallery-thumbs img { width: 32px; height: 24px;}
-      .container { width: 100vw; padding-left: 2vw; padding-right: 2vw;}
-      .hero { padding: 1.3rem 0.5rem 1.1rem 0.7rem; }
-      nav ul { gap: 0.1rem; }
-      nav ul li a {
-        font-size: 0.98rem;
-        padding-left: 0.1rem;
-        padding-right: 0.1rem;
-      }
-      .about-img { max-width: 100%; min-width: 0; height: 180px;}
-      .products-grid { grid-template-columns: 1fr; }
-      section { padding: 2.1rem 0 1.1rem; }
-    }
-
-    /* Make nav ul scrollable, but not hidden */
-    @media (max-width: 430px) {
-      nav ul {
-        gap: 0.2rem;
-        font-size: 0.93rem;
-      }
-      nav ul li a {
-        font-size: 0.91rem;
-        padding-left: 0.07rem;
-        padding-right: 0.07rem;
-      }
-    }
-    /* Gallery Carousel */
-    .gallery-carousel {
-      position: relative;
-      width: 100%;
-      max-width: 880px;
-      margin: 0 auto 2.2rem auto;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      touch-action: pan-y;
-      user-select: none;
-    }
-    .gallery-track {
-      display: flex;
-      transition: transform 0.6s cubic-bezier(.77,0,.175,1);
-      will-change: transform;
-    }
-    .gallery-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--light-bg);
-      height: 340px;
-      transition: opacity 0.5s;
-      overflow: hidden;
-      position: relative;
-    }
-    .gallery-slide img {
-      width: 100%;
-      height: 340px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px #2d37481a;
-      transition: transform 0.3s cubic-bezier(.77,0,.175,1);
-    }
-    .gallery-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--card-bg);
-      color: var(--primary-dark);
-      border: 1px solid var(--border-color);
-      border-radius: 50%;
-      width: 38px; height: 38px;
-      font-size: 1.35rem;
-      z-index: 3;
-      cursor: pointer;
-      box-shadow: 0 1px 9px #222e3a11;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.19s, color 0.19s, border 0.19s;
-      opacity: 0.8;
-    }
-    .gallery-arrow:hover {
-      background: var(--primary-dark);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      opacity: 1;
-    }
-    .gallery-arrow.left { left: 7px; }
-    .gallery-arrow.right { right: 7px; }
-    .gallery-indicators {
-      position: absolute;
-      left: 0; right: 0; bottom: 13px;
-      display: flex;
-      justify-content: center;
-      gap: 0.5em;
-      z-index: 4;
-    }
-    .gallery-indicators span {
-      display: block;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--border-color);
-      border: 1.5px solid var(--accent);
-      transition: background 0.22s, border-color 0.22s;
-      cursor: pointer;
-      margin: 0 2px;
-    }
-    .gallery-indicators .active {
-      background: var(--accent);
-      border-color: var(--primary-dark);
-    }
-    .gallery-thumbs {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.1rem;
-    }
-    .gallery-thumbs img {
-      width: 60px;
-      height: 46px;
-      object-fit: cover;
-      border-radius: 5px;
-      border: 1.5px solid var(--border-color);
-      box-shadow: 0 1px 4px #2d37480c;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: border 0.19s, opacity 0.18s, transform 0.18s;
-    }
-    .gallery-thumbs img.active,
-    .gallery-thumbs img:hover {
-      border: 2px solid var(--accent);
-      opacity: 1;
-      transform: scale(1.05);
-    }
-    .clients-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.2rem;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1.1rem;
-    }
-    .client-logo {
-      background: var(--card-bg);
-      padding: 1rem 1.5rem;
-      border-radius: 9px;
-      box-shadow: 0 2px 10px #2d374810;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      min-width: 110px;
-      border: 1px solid var(--border-color);
-    }
-    .client-logo img {
-      max-height: 54px;
-      max-width: 90px;
-    }
-    .testimonials {
-      margin-top: 1.7rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.3rem;
-    }
-    .testimonial {
-      background: var(--card-bg);
-      border-left: 4px solid var(--accent);
-      padding: 1rem 1.4rem;
-      border-radius: 8px;
-      max-width: 600px;
-      font-style: italic;
-      font-size: 1.06rem;
-      color: var(--muted);
-      box-shadow: 0 2px 8px #2d374813;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-    .testimonial .author {
-      margin-top: 0.5rem;
-      font-weight: bold;
-      color: var(--primary-dark);
-      font-style: normal;
-    }
-    .contact-form {
-      max-width: 480px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 2rem 1.5rem 2rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 11px #2d37480d;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-      border: 1px solid var(--border-color);
-    }
-    .contact-form label {
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: var(--primary-dark);
-    }
-    .contact-form input, .contact-form textarea {
-      padding: 0.75rem;
-      border: 1.5px solid var(--border-color);
-      border-radius: 5px;
-      font-size: 1.05rem;
-      resize: vertical;
-      background: var(--light-bg);
-      font-family: inherit;
-      transition: border 0.14s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border: 1.5px solid var(--accent);
-      outline: none;
-    }
-    .contact-form button {
-      background: var(--accent);
-      color: var(--primary-dark);
-      border: none;
-      padding: 0.9rem;
-      border-radius: 5px;
-      font-size: 1.08rem;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 0.3rem;
-      box-shadow: 0 2px 10px #4fd1c51a;
-      transition: background 0.18s, color 0.17s;
-    }
-    .contact-form button:hover {
-      background: var(--primary-dark);
-      color: var(--accent);
-    }
-    .contact-info {
-      text-align: center;
-      margin-top: 1.7rem;
-      color: var(--muted);
-      font-size: 1.01rem;
-    }
-    .contact-info strong {
-      font-size: 1.11rem;
-      color: var(--primary-dark);
-    }
-    .modal-bg {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(45,55,72,0.70);
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.3s;
-    }
-    .modal-bg.active {
-      display: flex;
-      animation: fadeIn 0.5s;
-    }
-    .modal-content {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 2rem 2.2rem 1.7rem 2.2rem;
-      max-width: 95vw;
-      width: 370px;
-      box-shadow: 0 8px 22px #2d374823;
-      text-align: center;
-      position: relative;
-      border: 1px solid var(--border-color);
-      color: var(--primary-dark);
-    }
-    .modal-content h3 {
-      color: var(--primary-dark);
-      margin-top: 0;
-      font-weight: 800;
-    }
-    .close-modal {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--primary-dark);
-      cursor: pointer;
-      font-weight: bold;
-      z-index: 3;
-    }
-    @media (max-width: 500px) {
-      .modal-content { padding: 1rem 0.5rem 1.1rem 0.5rem; width: 96vw;}
-      .gallery-slide, .gallery-slide img { height: 170px; }
-      .gallery-thumbs img { width: 32px; height: 24px;}
-    }
-    @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; }
-      .hero img { margin-bottom: 1.4rem; }
-      .about-content { flex-direction: column; }
-      .about-img { margin-bottom: 1.3rem;}
-    }
-    @media (max-width: 700px) {
-      nav ul { gap: 1rem; }
-      .clients-list { gap: 1rem; }
-      .products-grid { gap: 1rem;}
-      .container { width: 98vw;}
-    }
-    footer {
-      background: var(--primary-dark);
-      color: var(--accent);
-      text-align: center;
-      padding: 1rem 0 0.7rem 0;
-      letter-spacing: 1px;
-      margin-top: 2rem;
-      font-weight: bold;
-      font-size: 1.05rem;
-      border-top: 1px solid var(--border-color);
-      box-shadow: 0 -2px 8px #2d37480a;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <span class="logo">KitchenEquipCo</span>
-        <ul>
-          <li><a href="#home" class="active" onclick="showSection('home')">Home</a></li>
-          <li><a href="#about" onclick="showSection('about')">About Us</a></li>
-          <li><a href="#products" onclick="showSection('products')">Products</a></li>
-          <li><a href="#gallery" onclick="showSection('gallery')">Gallery</a></li>
-          <li><a href="#clients" onclick="showSection('clients')">Clients</a></li>
-          <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container">
+    <nav>
+      <span class="logo">KitchenEquipCo</span>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- Popup Modal -->
-  <div class="modal-bg" id="popupModal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal()" aria-label="Close">&times;</button>
-      <h3>Professional Offer</h3>
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+</script>
+
+<!-- Home Section -->
+<main class="container">
+  <section id="home">
+    <div class="hero">
+      <div class="hero-text">
+        <span class="premium-badge">PROFESSIONAL</span>
+        <h1>Modern Commercial Kitchens</h1>
+        <p>
+          We deliver innovative, reliable, and <b>professional kitchen equipment</b> for restaurants, hotels, bakeries, and more. 
+          Discover our wide range of products, tailored to elevate your culinary environment with the highest standards of craftsmanship and technology.
+        </p>
+        <p>
+          Our mission is to empower hospitality professionals with solutions that blend efficiency, hygiene, and style. 
+          From concept to installation, KitchenEquipCo ensures a seamless journey—making us the preferred choice for top F&B brands.
+        </p>
+        <a href="products.html" class="btn">Explore Products</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Kitchen equipment showcase">
+    </div>
+
+    <div style="margin-top:2rem;">
       <p>
-        Welcome to <b>KitchenEquipCo</b>.<br>
-        Enjoy <strong>15% off</strong> on all new kitchen projects.<br>
-        Contact us for your professional kitchen solution today!
+        <strong>Why Choose KitchenEquipCo?</strong><br>
+        Our team merges engineering with thoughtful design, ensuring your commercial kitchen is not just functional, but a showcase of professionalism and quality. 
+        We serve hotels, QSRs, cloud kitchens, and catering venues seeking that vital edge.
       </p>
-      <a href="#contact" class="btn" onclick="showSection('contact');closeModal();">Claim Offer</a>
+      <p>
+        <em>Experience the future of foodservice—where every detail is crafted for long-lasting performance.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=400&q=80" alt="Commercial Oven">
+        <h3>Commercial Oven</h3>
+        <p>High-performance oven designed for professional chefs.</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=400&q=80" alt="Refrigerator">
+        <h3>Stainless Steel Refrigerator</h3>
+        <p>Energy-efficient cooling with premium build quality.</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1609837175000-c63a2a5e5e25?w=400&q=80" alt="Industrial Mixer">
+        <h3>Industrial Mixer</h3>
+        <p>Perfect for bakeries, cafes, and large kitchens.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Custom kitchen layout design</li>
+      <li>Equipment supply & installation</li>
+      <li>Maintenance & repair services</li>
+      <li>Consulting for F&B operations</li>
+    </ul>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <blockquote>
+      “KitchenEquipCo transformed our kitchen into a highly efficient workspace. The quality of equipment is unmatched.” – <b>Chef Antonio</b>
+    </blockquote>
+    <blockquote>
+      “Professional service from start to finish. Our restaurant’s workflow has never been smoother.” – <b>Hotel Luxe</b>
+    </blockquote>
+  </section>
+</main>
+<!-- Footer with Contact Links and Enquiry Button -->
+<footer style="
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+">
+  <div style="
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+  ">
+    <div>
+      <p style="margin: 0.3rem 0; font-size: 1rem;">
+        <strong>📞 Call Us:</strong> 
+        <a href="tel:+1234567890" style="color: #ff9800; text-decoration: none; transition: 0.3s;">
+          +1 234 567 890
+        </a>
+      </p>
+      <p style="margin: 0.3rem 0; font-size: 1rem;">
+        <strong>💬 WhatsApp:</strong> 
+        <a href="https://wa.me/1234567890" target="_blank" style="color: #25D366; text-decoration: none; transition: 0.3s;">
+          Chat Now
+        </a>
+      </p>
+    </div>
+
+    <div>
+      <button onclick="openEnquiryForm()" style="
+        background: #ff9800;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+      " onmouseover="this.style.background='#ffa733'; this.style.boxShadow='0 6px 20px rgba(255, 152, 0, 0.4)'; this.style.transform='translateY(-2px)'" 
+         onmouseout="this.style.background='#ff9800'; this.style.boxShadow='0 4px 15px rgba(255, 152, 0, 0.3)'; this.style.transform='none'">
+        ✉ Enquiry
+      </button>
     </div>
   </div>
+</footer>
 
-  <main class="container">
-    <!-- Home -->
-    <section id="home" class="active">
-      <div class="hero">
-        <div class="hero-text">
-          <span class="premium-badge">PROFESSIONAL</span>
-          <h1>Modern Commercial Kitchens</h1>
-          <p>
-            We deliver innovative, reliable, and <b>professional kitchen equipment</b> for restaurants, hotels, bakeries, and more. Discover our wide range of products, tailored to elevate your culinary environment with the highest standards of craftsmanship and technology.
-          </p>
-          <p>
-            Our mission is to empower hospitality professionals with solutions that blend efficiency, hygiene, and style. From concept to installation, KitchenEquipCo ensures a seamless journey—making us the preferred choice for top F&B brands.
-          </p>
-          <a href="#products" class="btn" onclick="showSection('products')">Explore Products</a>
-        </div>
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Kitchen equipment showcase">
-      </div>
-      <div style="margin-top:2rem;">
-        <p>
-          <strong>Why Choose KitchenEquipCo?</strong><br>
-          Our team merges engineering with thoughtful design, ensuring your commercial kitchen is not just functional, but a showcase of professionalism and quality. We serve hotels, QSRs, cloud kitchens, and catering venues seeking that vital edge.
-        </p>
-        <p>
-          <em>Experience the future of foodservice—where every detail is crafted for long-lasting performance.</em>
-        </p>
-      </div>
-    </section>
+<!-- Enquiry Form Modal -->
+<div id="enquiryModal" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.6); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem; border-radius:8px; max-width:500px; width:90%; position:relative;">
+    <span onclick="closeEnquiryForm()" 
+          style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5rem;">&times;</span>
+    <h2 style="margin-bottom:1rem;">Enquiry Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <input type="email" placeholder="Your Email" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <textarea placeholder="Your Message" required 
+                style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; min-height:100px;"></textarea>
+      <button type="submit" 
+              style="background:#ff9800; color:#fff; border:none; padding:0.7rem 1.5rem; font-size:1rem; cursor:pointer; border-radius:5px;">
+        Send Enquiry
+      </button>
+    </form>
+  </div>
+</div>
 
-    <!-- About Us -->
-    <section id="about">
-      <h2 class="section-title">About Us</h2>
-      <div class="about-content">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&q=80" alt="Team" class="about-img">
-        <div class="about-text">
-          <p>
-            <strong>KitchenEquipCo</strong> is a hallmark for commercial kitchen equipment, serving businesses since 2005. Our focus on quality and innovation drives us to provide reliable solutions for food businesses of every scale.
-          </p>
-          <ul>
-            <li>ISO 9001:2015 certified quality management</li>
-            <li>In-house R&D and design</li>
-            <li>Custom stainless solutions for projects</li>
-            <li>Pan-India & international support</li>
-          </ul>
-          <p>
-            We focus on customer satisfaction and continuous improvement, ensuring every client receives expert guidance from kitchen planning to after-sales service.
-          </p>
-          <p>
-            <strong>Our Promise:</strong> Durability, hygiene, and professional service—tailored to your requirements.
-          </p>
-        </div>
-      </div>
-    </section>
+<script>
+function openEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'flex';
+}
+function closeEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'none';
+}
 
-    <!-- Products -->
-    <section id="products">
-      <h2 class="section-title">Our Products</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=200&q=80" alt="Refrigerated Display">
-          <h3>Refrigerated Display Counters</h3>
-          <p>Energy-efficient counters for bakery, desserts, and deli display. Custom branding and lighting available.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=200&q=80" alt="Cooking Range">
-          <h3>Commercial Cooking Ranges</h3>
-          <p>High-performance gas & induction ranges for professional kitchens. Precision controls, robust build, seamless finish.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=200&q=80" alt="Oven">
-          <h3>Bakery Ovens</h3>
-          <p>Convection & deck ovens for all baking needs. Uniform heating, digital controls, and energy-saving features.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=200&q=80" alt="Dishwasher">
-          <h3>Industrial Dishwashers</h3>
-          <p>Efficient, hygienic warewashing for busy restaurants. Automatic cycles, high capacity, water-saving.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?w=200&q=80" alt="Griddle">
-          <h3>Griddles & Grills</h3>
-          <p>Heavy-duty griddles and grills for perfect grilling and frying. Even heat, easy-clean design.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=200&q=80" alt="Preparation Table">
-          <h3>Stainless Steel Prep Tables</h3>
-          <p>Customizable, hygienic prep tables for workflow and organization. Food-grade stainless, ergonomic design.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1516685018646-bf7d5d3e7a36?w=200&q=80" alt="Combi Oven">
-          <h3>Combi Steam Ovens</h3>
-          <p>Steam, bake, roast in one. Programmable cycles and Wi-Fi monitoring available.</p>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c5d?w=200&q=80" alt="Bar Equipment">
-          <h3>Bar & Beverage Equipment</h3>
-          <p>Chillers, ice makers, and bar counters for professional service.</p>
-        </div>
-      </div>
-      <div style="margin-top:2rem;">
-        <p>
-          <strong>Quality Guarantee:</strong> All products are tested and backed by our service promise. Need something unique? <a href="#contact" onclick="showSection('contact')" style="color:var(--accent);text-decoration:underline;">Contact us</a> for custom design and fabrication.
-        </p>
-      </div>
-    </section>
+// Auto-open after 10 seconds
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    openEnquiryForm();
+  }, 5000);
+});
+</script>
 
-    <!-- Gallery -->
-    <section id="gallery">
-      <h2 class="section-title">Installations Gallery</h2>
-      <div class="gallery-carousel" id="galleryCarousel">
-        <button class="gallery-arrow left" onclick="prevSlide()" aria-label="Previous">&lt;</button>
-        <div class="gallery-track" id="galleryTrack">
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=880&q=80" alt="Bakery display"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=880&q=80" alt="Kitchen installation"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=880&q=80" alt="Product showcase"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=880&q=80" alt="Display counter"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=880&q=80" alt="Commercial kitchen"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=880&q=80" alt="Food prep area"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1516685018646-bf7d5d3e7a36?w=880&q=80" alt="Luxury buffet"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c5d?w=880&q=80" alt="Premium Bar"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=880&q=80" alt="Team at work"></div>
-          <div class="gallery-slide"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=880&q=80" alt="Showroom"></div>
-        </div>
-        <button class="gallery-arrow right" onclick="nextSlide()" aria-label="Next">&gt;</button>
-        <div class="gallery-indicators" id="galleryIndicators"></div>
-      </div>
-      <div class="gallery-thumbs" id="galleryThumbs"></div>
-      <div style="margin-top:2rem;">
-        <p>
-          Our gallery features installations for professional hospitality brands, with clean finishes and high-quality equipment. <em>Swipe</em> to explore modern kitchens, display counters, and live stations.
-        </p>
-      </div>
-    </section>
 
-    <!-- Clients & Testimonials -->
-    <section id="clients">
-      <h2 class="section-title">Our Clients & Testimonials</h2>
-      <div class="clients-list">
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Client 1">
-        </div>
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Client 2">
-        </div>
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/McDonald%27s_Logo.svg" alt="Client 3">
-        </div>
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Logo_Coca-Cola.svg" alt="Client 4">
-        </div>
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Logo_Tata_Consultancy_Services.svg" alt="Client 5">
-        </div>
-        <div class="client-logo">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Barista_Logo.png" alt="Client 6">
-        </div>
-      </div>
-      <div class="testimonials">
-        <div class="testimonial">
-          “KitchenEquipCo has transformed our hotel kitchen. From planning to execution, the experience was flawless. Our chefs love the new equipment!”
-          <div class="author">- Anjali M., 5-Star Hotel Executive Chef</div>
-        </div>
-        <div class="testimonial">
-          “Our restaurant’s new display counters not only look great, but have also improved our workflow. The team’s professionalism is unmatched.”
-          <div class="author">- Karan S., Bakery Chain Owner</div>
-        </div>
-        <div class="testimonial">
-          “Professional service, quality, and after-sales support. Highly recommended for any serious food business!”
-          <div class="author">- Sneha T., QSR Franchise Director</div>
-        </div>
-      </div>
-      <div style="margin-top:2rem;text-align:center;">
-        <p>
-          <strong>Join our professional clientele and elevate your kitchen operations.</strong>
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact Us -->
-    <section id="contact">
-      <h2 class="section-title">Contact Us</h2>
-      <form class="contact-form" onsubmit="submitContact(event)">
-        <label for="name">Name</label>
-        <input type="text" id="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
-        <label for="message">Message</label>
-        <textarea id="message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-        <div id="form-status" style="margin-top:1rem; color:var(--primary-dark); font-weight:bold; display:none;"></div>
-      </form>
-      <div class="contact-info">
-        <p><strong>Address:</strong> 123 Culinary Avenue, Mumbai, India</p>
-        <p><strong>Phone:</strong> +91 98765 43210</p>
-        <p><strong>Email:</strong> info@kitchenequipco.com</p>
-        <p>
-          <strong>Follow us:</strong>
-          <a href="https://www.facebook.com/" target="_blank" style="color:var(--primary-dark);text-decoration:none;margin:0 0.3rem;">Facebook</a> |
-          <a href="https://www.instagram.com/" target="_blank" style="color:var(--primary-dark);text-decoration:none;margin:0 0.3rem;">Instagram</a> |
-          <a href="https://www.linkedin.com/" target="_blank" style="color:var(--primary-dark);text-decoration:none;margin:0 0.3rem;">LinkedIn</a>
-        </p>
-        <p style="margin-top:1.1rem;">
-          <strong>Business Hours:</strong><br>
-          Monday - Saturday: 9:00 AM - 7:00 PM<br>
-          Sunday: Closed
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 KitchenEquipCo. All rights reserved.
-  </footer>
-
-  <script>
-    // Section navigation logic
-    function showSection(sectionId) {
-      document.querySelectorAll('nav ul li a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + sectionId) {
-          link.classList.add('active');
-        }
-      });
-      document.querySelectorAll('main > section').forEach(sec => sec.classList.remove('active'));
-      var sec = document.getElementById(sectionId);
-      if (sec) sec.classList.add('active');
-      window.location.hash = sectionId;
-      window.scrollTo({top: 0, behavior: "smooth"});
-    }
-    window.addEventListener('DOMContentLoaded', () => {
-      let hash = window.location.hash.replace('#', '');
-      if (hash && document.getElementById(hash)) showSection(hash);
-      else showSection('home');
-      setTimeout(() => { showModal(); }, 10000);
-      initGalleryCarousel();
-    });
-    window.addEventListener('hashchange', () => {
-      let hash = window.location.hash.replace('#', '');
-      if (hash && document.getElementById(hash)) showSection(hash);
-    });
-    // Contact form fake
-    function submitContact(e) {
-      e.preventDefault();
-      document.getElementById('form-status').style.display = 'block';
-      document.getElementById('form-status').textContent = "Thank you! We'll get in touch soon.";
-      setTimeout(() => {
-        document.getElementById('form-status').style.display = 'none';
-        e.target.reset();
-      }, 3500);
-    }
-    // Popup modal functions
-    function showModal() {
-      document.getElementById('popupModal').classList.add('active');
-    }
-    function closeModal() {
-      document.getElementById('popupModal').classList.remove('active');
-    }
-    document.getElementById('popupModal').onclick = function(e) {
-      if (e.target === this) closeModal();
-    }
-    window.addEventListener('keydown', function(e) {
-      if (e.key === "Escape") closeModal();
-    });
-
-    // ----------- Gallery Carousel (touch/swipe/mouse/indicators/thumbnails) -----------
-    // Images (keep in sync with .gallery-track slides)
-    const galleryImages = [
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=880&q=80",
-      "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=880&q=80",
-      "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=880&q=80",
-      "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=880&q=80",
-      "https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=880&q=80",
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?w=880&q=80",
-      "https://images.unsplash.com/photo-1516685018646-bf7d5d3e7a36?w=880&q=80",
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c5d?w=880&q=80",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=880&q=80",
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=880&q=80"
-    ];
-    let currentSlide = 0, isDragging = false, startX = 0, currentTranslate = 0, prevTranslate = 0, animationID = 0;
-
-    function initGalleryCarousel() {
-      updateGallery();
-      // Thumbnails
-      const thumbsDiv = document.getElementById('galleryThumbs');
-      thumbsDiv.innerHTML = '';
-      galleryImages.forEach((src, idx) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = idx === currentSlide ? 'active' : '';
-        img.alt = 'Gallery thumb ' + (idx+1);
-        img.onclick = () => { goToSlide(idx); };
-        thumbsDiv.appendChild(img);
-      });
-      // Touch events
-      const track = document.getElementById('galleryTrack');
-      let xDown = null, xUp = null, yDown = null;
-      track.addEventListener('touchstart', function(evt){ xDown = evt.touches[0].clientX; yDown = evt.touches[0].clientY; }, {passive:true});
-      track.addEventListener('touchmove', function(evt){
-        if(!xDown || !yDown) return;
-        let xDiff = xDown - evt.touches[0].clientX;
-        let yDiff = yDown - evt.touches[0].clientY;
-        if(Math.abs(xDiff) > Math.abs(yDiff)) {
-          evt.preventDefault();
-        }
-      }, {passive:false});
-      track.addEventListener('touchend', function(evt){
-        if(!xDown) return;
-        xUp = evt.changedTouches[0].clientX;
-        let dx = xDown - xUp;
-        if(Math.abs(dx) > 40) {
-          if(dx > 0) nextSlide();
-          else prevSlide();
-        }
-        xDown = xUp = yDown = null;
-      });
-      // Mouse drag (desktop)
-      track.addEventListener('mousedown', dragStart);
-      track.addEventListener('mouseup', dragEnd);
-      track.addEventListener('mouseleave', dragEnd);
-      track.addEventListener('mousemove', dragMove);
-    }
-    function updateGallery() {
-      const track = document.getElementById('galleryTrack');
-      track.style.transform = `translateX(${-currentSlide*100}%)`;
-      // Indicators
-      const indicators = document.getElementById('galleryIndicators');
-      indicators.innerHTML = '';
-      for(let i=0;i<galleryImages.length;i++) {
-        let span = document.createElement('span');
-        span.className = i === currentSlide ? 'active' : '';
-        span.onclick = () => goToSlide(i);
-        indicators.appendChild(span);
-      }
-      // Thumbs
-      document.querySelectorAll('.gallery-thumbs img').forEach((img,idx)=>{
-        img.classList.toggle('active', idx===currentSlide);
-      });
-    }
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
-      updateGallery();
-    }
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % galleryImages.length;
-      updateGallery();
-    }
-    function goToSlide(idx) {
-      currentSlide = idx;
-      updateGallery();
-    }
-    // Mouse drag functions
-    function dragStart(e) {
-      isDragging = true;
-      startX = e.pageX;
-      prevTranslate = -currentSlide * document.getElementById('galleryCarousel').offsetWidth;
-      animationID = requestAnimationFrame(animationDrag);
-    }
-    function dragMove(e) {
-      if(!isDragging) return;
-      let dx = e.pageX - startX;
-      currentTranslate = prevTranslate + dx;
-      document.getElementById('galleryTrack').style.transform = `translateX(${currentTranslate}px)`;
-    }
-    function dragEnd(e) {
-      if(!isDragging) return;
-      isDragging = false;
-      cancelAnimationFrame(animationID);
-      let moved = e.pageX - startX;
-      if(Math.abs(moved) > 60) {
-        if(moved < 0) nextSlide();
-        else prevSlide();
-      } else {
-        updateGallery();
-      }
-    }
-    function animationDrag() {
-      if(isDragging) requestAnimationFrame(animationDrag);
-    }
-    // Keyboard navigation for gallery
-    window.addEventListener('keydown', function(e) {
-      if(document.getElementById('gallery').classList.contains('active')) {
-        if(e.key==='ArrowLeft') prevSlide();
-        if(e.key==='ArrowRight') nextSlide();
-      }
-    });
-  </script>
+<footer>
+  &copy; 2025 KitchenEquipCo. All Rights Reserved.
+</footer>
 </body>
-
 </html>

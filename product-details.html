@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details - KitchenEquipCo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: Arial, sans-serif; background: #f5f6f8; margin: 0; padding: 0; }
+  .container { max-width: 900px; margin: auto; padding: 1rem; }
+  .product-title { font-size: 2rem; margin-bottom: 0.5rem; color: #222; }
+  .slider { position: relative; overflow: hidden; }
+  .slider img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 10px; }
+  .specs { background: white; padding: 1rem; margin-top: 1rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+</style>
+</head>
+<body>
+ <header>
+  <div class="container">
+    <nav>
+      <span class="logo">KitchenEquipCo</span>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+</script>
+<div class="container">
+  <h1 id="product-title" class="product-title"></h1>
+  <div class="slider" id="slider">
+    <img id="product-image" src="" alt="">
+  </div>
+  <div class="specs">
+    <h2>Specifications</h2>
+    <p id="product-description"></p>
+  </div>
+</div>
+
+<script>
+let productImages = [];
+let currentIndex = 0;
+let startX = 0;
+
+async function loadProduct() {
+  const params = new URLSearchParams(window.location.search);
+  const productId = parseInt(params.get('id'), 10);
+
+  if (isNaN(productId)) {
+    document.body.innerHTML = '<h2>Invalid Product ID</h2>';
+    return;
+  }
+
+  try {
+    const response = await fetch('products.json');
+    const products = await response.json();
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+      document.body.innerHTML = '<h2>Product not found</h2>';
+      return;
+    }
+
+    document.getElementById('product-title').textContent = product.name;
+    document.getElementById('product-description').textContent = product.description;
+    productImages = product.images;
+    updateImage();
+  } catch (error) {
+    console.error('Error loading product:', error);
+  }
+}
+
+function updateImage() {
+  document.getElementById('product-image').src = productImages[currentIndex];
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % productImages.length;
+  updateImage();
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + productImages.length) % productImages.length;
+  updateImage();
+}
+
+// Touch swipe handlers
+const slider = document.getElementById('slider');
+slider.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+slider.addEventListener('touchend', e => {
+  let endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) nextImage(); // Swipe left
+  else if (endX - startX > 50) prevImage(); // Swipe right
+});
+
+loadProduct();
+</script>
+<!-- Footer with Contact Links and Enquiry Button -->
+<footer style="background:#222; color:#fff; padding:2rem 1rem; text-align:center; position:relative;">
+  <div style="margin-bottom:1rem;">
+    <p><strong>📞 Call Us:</strong> <a href="tel:+1234567890" style="color:#ff9800;">+1 234 567 890</a></p>
+    <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank" style="color:#25D366;">Chat Now</a></p>
+  </div>
+  <button onclick="openEnquiryForm()" 
+    style="background:#ff9800; color:#fff; border:none; padding:0.7rem 1.5rem; font-size:1rem; cursor:pointer; border-radius:5px;">
+    ✉ Enquiry
+  </button>
+  <p style="margin-top:1rem; font-size:0.85rem; color:#aaa;">&copy; 2025 KitchenEquipCo. All Rights Reserved.</p>
+</footer>
+
+<!-- Enquiry Form Modal -->
+<div id="enquiryModal" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.6); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem; border-radius:8px; max-width:500px; width:90%; position:relative;">
+    <span onclick="closeEnquiryForm()" 
+          style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5rem;">&times;</span>
+    <h2 style="margin-bottom:1rem;">Enquiry Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <input type="email" placeholder="Your Email" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <textarea placeholder="Your Message" required 
+                style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; min-height:100px;"></textarea>
+      <button type="submit" 
+              style="background:#ff9800; color:#fff; border:none; padding:0.7rem 1.5rem; font-size:1rem; cursor:pointer; border-radius:5px;">
+        Send Enquiry
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+function openEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'flex';
+}
+function closeEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

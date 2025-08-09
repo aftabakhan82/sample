@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery - KitchenEquipCo</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+  <div class="container">
+    <nav>
+      <span class="logo">KitchenEquipCo</span>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+</script>
+
+  <main class="container">
+    <section id="gallery">
+      <h1>Gallery</h1>
+<div class="gallery-grid">
+  <img src="https://picsum.photos/id/1011/800/520" alt="Kitchen sample 1">
+  <img src="https://picsum.photos/id/1025/800/520" alt="Kitchen sample 2">
+  <img src="https://picsum.photos/id/1035/800/520" alt="Kitchen sample 3">
+  <img src="https://picsum.photos/id/1043/800/520" alt="Kitchen sample 4">
+  <img src="https://picsum.photos/id/1062/800/520" alt="Kitchen sample 5">
+  <img src="https://picsum.photos/id/1069/800/520" alt="Kitchen sample 6">
+  <img src="https://picsum.photos/id/1074/800/520" alt="Kitchen sample 7">
+  <img src="https://picsum.photos/id/1080/800/520" alt="Kitchen sample 8">
+</div>
+    </section>
+  </main>
+<!-- Footer with Contact Links and Enquiry Button -->
+<footer style="background:#222; color:#fff; padding:2rem 1rem; text-align:center; position:relative;">
+  <div style="margin-bottom:1rem;">
+    <p><strong>📞 Call Us:</strong> <a href="tel:+1234567890" style="color:#ff9800;">+1 234 567 890</a></p>
+    <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank" style="color:#25D366;">Chat Now</a></p>
+  </div>
+  <button onclick="openEnquiryForm()" 
+    style="background:#ff9800; color:#fff; border:none; padding:0.7rem 1.5rem; font-size:1rem; cursor:pointer; border-radius:5px;">
+    ✉ Enquiry
+  </button>
+</footer>
+
+<!-- Enquiry Form Modal -->
+<div id="enquiryModal" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.6); z-index:1000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem; border-radius:8px; max-width:500px; width:90%; position:relative;">
+    <span onclick="closeEnquiryForm()" 
+          style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:1.5rem;">&times;</span>
+    <h2 style="margin-bottom:1rem;">Enquiry Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <input type="email" placeholder="Your Email" required 
+             style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;">
+      <textarea placeholder="Your Message" required 
+                style="width:100%; padding:0.7rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; min-height:100px;"></textarea>
+      <button type="submit" 
+              style="background:#ff9800; color:#fff; border:none; padding:0.7rem 1.5rem; font-size:1rem; cursor:pointer; border-radius:5px;">
+        Send Enquiry
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+function openEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'flex';
+}
+function closeEnquiryForm() {
+  document.getElementById('enquiryModal').style.display = 'none';
+}
+</script>
+
+  <footer>
+    &copy; 2025 KitchenEquipCo. All Rights Reserved.
+  </footer>
+</body>
+</html>
