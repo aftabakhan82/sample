@@ -1,12 +1,11 @@
 [
   {
     "id": 1,
-    "name": "Commercial Oven",
-    "description": "High-performance oven for professional kitchens.",
+    "name": "Six Seater Dining Table",
+    "description": "A 6-seater dining table is a medium-sized table designed to comfortably seat six people, making it perfect for families or small gatherings. These tables are usually rectangular, square, or round in shape and crafted from materials such as solid wood, glass, marble, or metal. The standard dimensions for a rectangular 6-seater table are around 60–72 inches in length, 36–40 inches in width, and 30 inches in height.The table typically comes with six matching chairs, sometimes cushioned for comfort. Styles range from modern and minimalist with clean lines and sleek finishes, to traditional and rustic with rich wood tones and ornate details.",
     "images": [
-      "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1617196039897-0cfba9a2c57d?w=800&auto=format&fit=crop&q=80",
-      "https://images.unsplash.com/photo-1604917594315-70b1a9a0a002?w=800&auto=format&fit=crop&q=80"
+      "6_SEATER_DINNING_TABLE.png",
+      "1000064405-removebg-preview.png"
     ]
   },
   {
