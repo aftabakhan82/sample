@@ -7,29 +7,6 @@
       "6_SEATER_DINNING_TABLE.png",
       "1000064405-removebg-preview.png"
     ]
-  },
-  {
-    "id": 2,
-    "name": "Four Burner Italian Gas Range",
-    "description": "A 4-Burner Italian Gas Range is a premium cooking appliance designed for both style and performance. Built with high-quality stainless steel and advanced Italian technology, it combines durability with a sleek, modern look that enhances any kitchen. The gas range features four high-efficiency brass burners, offering precise flame control for simmering, sautéing, frying, or boiling. The burners are designed to deliver even heat distribution, ensuring consistent cooking results while saving energy. It typically includes: Heavy-duty cast iron pan supports for stability. Auto ignition system for convenience and safety. Ergonomic knobs with smooth flame adjustment. Easy-to-clean surface resistant to stains and scratches.",
-    "images": [
-      "4-Burner-Italian-Gas-Rnage.png"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Two Mini Gas Range",
-    "description": "A Two Mini Gas Range is a compact and efficient cooking appliance designed for small kitchens, hostels, or outdoor use. Featuring two burners, it allows you to cook multiple dishes at the same time while saving space. Built with a sturdy stainless steel body, the mini gas range is lightweight, durable, and easy to clean. The high-efficiency burners provide steady flames with low gas consumption, making it both economical and reliable. Key features: 2 high-performance burners for versatile cooking. Compact and portable design – ideal for travel, camping, or small households. Anti-skid rubber legs for stability. Easy-to-use knobs with smooth flame control. Rust-resistant surface for long-lasting performance.",
-    "images": [
-      "Two-Mini-Gas-Range.png"  
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Table Top Deep Fat Fryer",
-    "description": "A Table Top Deep Fat Fryer is a compact yet powerful appliance designed for frying a wide range of foods quickly and efficiently. Perfect for restaurants, cafés, food stalls, and home kitchens, it offers professional-quality frying while saving counter space. Built with a durable stainless-steel body, the fryer is easy to clean and resistant to rust. The removable oil tank ensures convenient oil changes and hassle-free maintenance. Equipped with temperature control knobs, it allows precise adjustment for frying items like french fries, chicken, fish, samosas, and other snacks to golden perfection. Key Features: Countertop design – space-saving and portable. Adjustable thermostat for accurate temperature control. Heat-resistant handles for safe operation. Removable frying basket with anti-slip handle. Overheat protection for safety and durability.",
-    "images": [
-      "Table_top_deep_fat_fryer.png"
-    ]
   }
 ]
+
