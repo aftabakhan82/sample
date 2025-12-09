@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urja Talents Payroll - Visual Presentation (Black/Gray - SVG Icons)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- PROFESSIONAL BLACK/GRAY PALETTE --- */
+        :root {
+            --primary-accent: #343a40; /* Dark Gray/Black for main titles and tables */
+            --secondary-accent: #6c757d; /* Medium Gray for subtitles and soft highlights */
+            --highlight-netpay: #007bff; /* Professional Blue for Net Pay distinction */
+            --light-bg: #ffffff; /* Pure White background */
+            --dark-text: #1f2937;
+            --border-color: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+
+        .presentation-container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+            overflow: hidden;
+        }
+
+        .slide {
+            padding: 40px;
+            border-bottom: 1px solid var(--border-color);
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .slide:last-of-type {
+            border-bottom: none;
+        }
+
+        .slide-title {
+            color: var(--primary-accent);
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 3px solid var(--secondary-accent);
+            padding-bottom: 10px;
+        }
+
+        .slide-subtitle {
+            color: var(--secondary-accent);
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-bottom: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .slide-content {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .slide-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .slide-content ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .slide-content ul li::before {
+            content: '•';
+            color: var(--secondary-accent); /* Gray bullet point */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--primary-accent); /* Darker gray for key terms */
+        }
+        .highlight-green {
+            font-weight: 600;
+            color: var(--secondary-accent); /* Medium gray for secondary highlights */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-accent); /* Dark Gray Table Headers */
+            color: white;
+            font-weight: 500;
+        }
+        
+        /* New Table Styling for Schema */
+        .schema-table th {
+            background-color: var(--secondary-accent); /* Medium Gray for Schema Table Header */
+            color: white; /* Ensure text is visible */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .net-pay {
+            font-weight: 700;
+            color: var(--highlight-netpay); /* Blue Highlight for Net Pay */
+            font-size: 1.1em;
+        }
+        
+        .key-data {
+            font-weight: 600;
+            color: var(--primary-accent);
+        }
+
+        .print-button {
+            display: block;
+            width: 280px;
+            padding: 12px;
+            margin: 30px auto;
+            background-color: var(--primary-accent); /* Dark Gray Button */
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .print-button:hover {
+            background-color: #495057; /* Slightly lighter gray on hover */
+        }
+
+        /* Flowchart specific styles remain mostly the same, ensuring color neutrality */
+        .flowchart-diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .flowchart-diagram img {
+            max-width: 90%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+        .caption {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: var(--secondary-accent);
+        }
+
+        .svg-icon {
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 8px;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+        
+        /* Print Specific Styles */
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .presentation-container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+            }
+            .slide {
+                border-bottom: 1px dashed var(--border-color);
+                padding: 20px;
+                min-height: auto;
+                height: auto;
+                page-break-after: always;
+            }
+            .slide:last-of-type {
+                border-bottom: none;
+            }
+            body {
+                background-color: white;
+                color: black;
+            }
+            h1, h2, h3 {
+                color: black !important;
+            }
+            th {
+                background-color: #e0e0e0 !important;
+                color: black !important;
+            }
+            .flowchart-diagram img {
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    
+    <button class="print-button" onclick="window.print()">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="fill: white;">
+            <path d="M19 8H5c-1.65 0-3 1.35-3 3v6h4v4h12v-4h4v-6c0-1.65-1.35-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+        </svg>
+        Print All Slides / Save as PDF
+    </button>
+
+    <div class="slide">
+        <h1 class="slide-title">Urja Talents - Payroll & Automation Service</h1>
+        <h2 class="slide-subtitle">Modernizing Teacher Compensation and Reporting</h2>
+        <div class="slide-content">
+            <ul>
+                <li>The Problem: Manual, complex payroll calculation based on sessions, variable rates, and performance.</li>
+                <li>The Solution: A unified, automated Python service to track sessions, calculate earnings, and generate professional pay slips.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19 2c-1.1 0-2 .9-2 2v1h-3V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v1H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h4v3h2v-3h6v3h2v-3h4c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3V4c0-1.1-.9-2-2-2zm-8 4h2v2h-2V6zm-3 0h2v2H8V6zm-3 0h2v2H5V6zm14 10H5V8h14v8z"/></svg>
+            Architectural Overview
+        </h2>
+        <h3 class="slide-subtitle">Technology Stack & System Components</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Core Technology:</span> Python 3 (Single-file service).</li>
+                <li><span class="highlight">Data Layer:</span> SQLite DB (Portable, file-based). Tables track Teachers, Sessions, Attendance, and Payroll.</li>
+                <li><span class="highlight">Data Ingestion:</span> Simulated Webhook Functions (e.g., <code>ingest_session_completed</code>).</li>
+                <li><span class="highlight">Reporting:</span> <code>pandas</code> for data structuring, PDF via <code>reportlab</code> (optional), or HTML fallback.</li>
+                <li><span class="highlight">Future Ready:</span> FastAPI scaffold included for easy API deployment.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8c0-4.42-3.58-8-8-8z"/></svg>
+            End-to-End System Flowchart
+        </h2>
+        <h3 class="slide-subtitle">From Event Ingestion to Final Reporting</h3>
+        <div class="slide-content flowchart-diagram">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/18105174490451630170_0" alt="Flowchart Diagram of Payroll Automation System">
+            <p class="caption">
+                *Conceptual diagram representing the automated data flow for payroll processing.*
+            </p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 7h-2V5h2v4zm4 4h-4v-2h4v2z"/></svg>
+            New Feature: Student Fees & Enrollment
+        </h2>
+        <h3 class="slide-subtitle">Database Schema Expansion for Finance Tracking</h3>
+        <div class="slide-content">
+            <p>Three new tables are introduced to handle student lifecycle, fees, and renewal status:</p>
+            <table class="schema-table">
+                <thead>
+                    <tr>
+                        <th>Table</th>
+                        <th>Key Columns</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="key-data">students</td>
+                        <td><code>name</code>, <code>contact</code></td>
+                        <td>Basic student demographics.</td>
+                    </tr>
+                    <tr>
+                        <td class="key-data">enrollments</td>
+                        <td><code>batch_id</code>, <code>fee_amount_total</code>, <code>renewal_date</code></td>
+                        <td>Links students to batches; tracks total fees and expected renewal date.</td>
+                    </tr>
+                    <tr>
+                        <td class="key-data">fee_payments</td>
+                        <td><code>enrollment_id</code>, <code>amount</code>, <code>payment_date</code></td>
+                        <td>Records all individual fee transactions (financial audit trail).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M21 4H3v2h18V4zm-2 4H5v2h14V8zm-4 4H9v2h6v-2zm2 4H7v2h10v-2z"/></svg>
+            New Flow: Enrollment & Fee Processing
+        </h2>
+        <h3 class="slide-subtitle">Ingestion Points and Financial Impact</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">New Ingestion Point 1:</span> <code>ingest_enrollment_started()</code>
+                    <ul>
+                        <li>Creates records in <span class="highlight-green">students</span> and <span class="highlight-green">enrollments</span> tables upon successful sign-up.</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">New Ingestion Point 2:</span> <code>ingest_fee_payment()</code>
+                    <ul>
+                        <li>Records the transaction in the <span class="highlight-green">fee_payments</span> table.</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">Payroll Integration:</span>
+                    <ul>
+                        <li>Enables <span class="highlight-green">Batch Completion Bonus</span> check (e.g., triggered only if 100% of fees for the batch are collected).</li>
+                        <li>Allows for reporting on <span class="highlight-green">Fee Status/Renewals</span> (where <code>renewal_date</code> is imminent).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17 12c.5 0 1 .5 1 1v4c0 .5-.5 1-1 1H7c-.5 0-1-.5-1-1v-4c0-.5.5-1 1-1h1V9c0-3.31 2.69-6 6-6s6 2.69 6 6v3h-2V9c0-2.21-1.79-4-4-4s-4 1.79-4 4v3h1zm-5 6c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z"/></svg>
+            Key Features: Automated Data Ingestion
+        </h2>
+        <h3 class="slide-subtitle">Streamlining Session & Attendance Tracking</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Core Feature:</span> Session Completion Webhook (<code>ingest_session_completed</code>)</li>
+                <li><span class="highlight">Functionality:</span>
+                    <ul>
+                        <li>Records critical data: session duration, <span class="highlight-green">Teacher ID</span>, and session validity (1/0).</li>
+                        <li>Stores detailed student-level <span class="highlight-green">Attendance</span> records (Present/Absent).</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">Business Impact:</span> Ensures immediate and accurate capture of all billable work, replacing prone-to-error manual time tracking.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 4H9v2h6V8zm0 4H9v2h6v-2zm4 4H5v2h14v-2z"/></svg>
+            Key Features: Advanced Payroll Logic
+        </h2>
+        <h3 class="slide-subtitle">Comprehensive & Fair Compensation Model</h3>
+        <div class="slide-content">
+            <p>Calculated via the <span class="highlight"><code>compute_payroll_for_month()</code></span> function.</p>
+            <ul>
+                <li><span class="highlight">Earnings Components:</span>
+                    <ul>
+                        <li><span class="highlight-green">Fixed Retainer:</span> Flat monthly amount.</li>
+                        <li><span class="highlight-green">Session Earnings:</span> Valid sessions &times; Per-Session Rate.</li>
+                        <li><span class="highlight-green">Hourly Earnings:</span> Total minutes / 60 &times; Per-Hour Rate.</li>
+                        <li><span class="highlight-green">Extra Class Bonus:</span> Bonus for sessions exceeding a baseline.</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">Deductions & Performance Bonus:</span>
+                    <ul>
+                        <li><span class="highlight-green">Deductions:</span> Applied for invalid/no-show sessions.</li>
+                        <li><span class="highlight-green">Performance Bonus:</span> Conditional bonus based on high student attendance rate ($\ge 85\%$).</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">Accuracy:</span> All calculations utilize Python's <code>Decimal</code> type for precise financial rounding, preventing floating-point errors.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg>
+            Key Features: Reporting & Audit Trail
+        </h2>
+        <h3 class="slide-subtitle">Transparent Salary Slips & Comprehensive Payroll Reports</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Output 1:</span> Automated Salary Slips (PDF/HTML)
+                    <ul>
+                        <li>Generated per-teacher for full transparency.</li>
+                        <li>Provides a detailed breakdown and includes the key metric: <span class="highlight-green">Student Attendance Rate</span>.</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">Output 2:</span> Payroll CSV Report
+                    <ul>
+                        <li>A summary file generated for auditing, approval, and bank processing.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M5 21h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2zm14-4V7H5v12h14zm-4-4h-2V9h2v4z"/></svg>
+            Demo Results: November 2025 Payroll
+        </h2>
+        <h3 class="slide-subtitle">Snapshot of Simulated Payroll Run</h3>
+        <div class="slide-content">
+            <p>Scenario: Sample sessions simulated for two teachers based on the CLI demo.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Teacher</th>
+                        <th>Fixed Retainer (₹)</th>
+                        <th>Session Earnings (₹)</th>
+                        <th>Deductions (₹)</th>
+                        <th>Net Pay (₹)</th>
+                        <th>Attendance Rate (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="key-data">Asha Sharma</td>
+                        <td>0.00</td>
+                        <td>1,400.00</td>
+                        <td>700.00</td>
+                        <td class="net-pay">750.00</td>
+                        <td>100.0%</td>
+                    </tr>
+                    <tr>
+                        <td class="key-data">Ramesh Iyer</td>
+                        <td>5,000.00</td>
+                        <td>1,200.00</td>
+                        <td>600.00</td>
+                        <td class="net-pay">5,600.00</td>
+                        <td>100.0%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="caption">Key Insight: Deductions were applied for simulated no-show sessions, demonstrating the system's robust accountability.</p>
+        </div>
+    </div>
+
+    <div class="slide">
+        <h2 class="slide-title">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+            Conclusion & Future Roadmap
+        </h2>
+        <h3 class="slide-subtitle">Success Achieved & Next Steps</h3>
+        <div class="slide-content">
+            <p>The Urja Talents Service now offers a unified platform for both operational tracking and financial management.</p>
+            <h4>Future Roadmap:</h4>
+            <ol>
+                <li><span class="highlight">Deployment:</span> Enable and run the <span class="highlight-green">FastAPI scaffold</span> to go live as a robust API service.</li>
+                <li><span class="highlight">Financial Integration:</span> Complete implementation of the <span class="highlight-green">Fees & Enrollment flows</span>.</li>
+                <li><span class="highlight">Full Compensation Model:</span> Implement the logic for the <span class="highlight-green">Batch Completion Bonus</span> based on full fee collection.</li>
+                <li><span class="highlight">LMS Integration:</span> Connect the webhook endpoints to the live LMS/Scheduling system.</li>
+            </ol>
+        </div>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="fill: white;">
+            <path d="M19 8H5c-1.65 0-3 1.35-3 3v6h4v4h12v-4h4v-6c0-1.65-1.35-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+        </svg>
+        Print All Slides / Save as PDF
+    </button>
+
+</div>
+<script>
+    // Simple script for the print button
+    document.querySelector('.print-button').addEventListener('click', () => {
+        window.print();
+    });
+</script>
+</body>
+</html>
